@@ -20,7 +20,7 @@
 Το υλικό έχει δημιουργηθεί από το ** Δημήτρη Γ. Μπαϊρακτάρη **, εκπαιδευτικό στην ειδικότητα Δομικών Έργων. Το quiz αναπτύχθηκε στο πλαίσιο της περιβαλλοντικής εκπαίδευσης και της ενίσχυσης της διδακτικής διαδικασίας για μαθητές ΕΠΑΛ.
 
 🔹 **Ιδρυματικό Αποθετήριο:** Το υλικό φιλοξενείται στην πλατφόρμα e-me:  
-  **[Quiz στο e-me](https://files.e-me.edu.gr/s/EHKSf3jxr7aWQr6)**
+  **[Quiz στο e-me](https://files.e-me.edu.gr/s/8KBkX6gzEG8FsyK)**
 
 🔹 **GitHub Repository:** Το quiz φιλοξενείται στο GitHub:  
   **[https://github.com/mpairaktaris/domika-erga](https://github.com/mpairaktaris/domika-erga)**
