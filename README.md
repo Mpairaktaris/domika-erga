@@ -24,7 +24,7 @@
 - **GitHub Repository:** Το quiz φιλοξενείται στο GitHub και μπορείς να το βρεις εδώ:  
   **[https://github.com/mpairaktaris/domika-erga](https://github.com/mpairaktaris/domika-erga)**
 - **e-me Repository:** Το quiz είναι επίσης διαθέσιμο στην πλατφόρμα e-me:  
- **[Quiz στο e-me](https://files.e-me.edu.gr/s/EHKSf3jxr7aWQr6)**
+ **[Quiz στο e-me](https://files.e-me.edu.gr/s/8KBkX6gzEG8FsyK)**
 
 ## Άδεια Χρήσης
 Το υλικό διατίθεται υπό την άδεια [Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 3.0 Ελλάδα](https://creativecommons.org/licenses/by-nc-sa/3.0/gr/) (CC BY-NC-SA 3.0 GR).
