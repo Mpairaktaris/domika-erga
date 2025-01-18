@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Διαδραστικό Quiz Δομικών Έργων</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .quiz-container { width: 50%; margin: auto; }
-        .question { font-weight: bold; }
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .quiz-container { width: 50%; margin: auto; text-align: left; }
+        .question { font-weight: bold; margin-top: 20px; }
         .options { list-style-type: none; padding: 0; }
         .options li { margin: 5px 0; }
-        #submit { margin-top: 10px; }
+        #submit, #restart { margin-top: 10px; padding: 10px; }
         #result { margin-top: 20px; font-size: 1.2em; }
+        #chart-container { width: 50%; margin: auto; display: none; }
     </style>
 </head>
 <body>
@@ -18,7 +20,12 @@
         <h2>Διαδραστικό Quiz Δομικών Έργων</h2>
         <div id="quiz"></div>
         <button id="submit">Υποβολή Απαντήσεων</button>
+        <button id="restart" style="display: none;">Επανεκκίνηση</button>
         <div id="result"></div>
+    </div>
+
+    <div id="chart-container">
+        <canvas id="scoreChart"></canvas>
     </div>
 
     <script>
@@ -32,13 +39,29 @@
                 question: "Τι είναι η θεμελίωση ενός κτηρίου;",
                 options: ["Η οροφή", "Τα θεμέλια", "Οι τοίχοι", "Τα παράθυρα"],
                 correct: "Τα θεμέλια"
+            },
+            {
+                question: "Ποιο είναι το βασικό πλεονέκτημα του οπλισμένου σκυροδέματος;",
+                options: ["Ευκαμψία", "Αντοχή σε εφελκυσμό και θλίψη", "Χαμηλό κόστος", "Ελαφρύ βάρος"],
+                correct: "Αντοχή σε εφελκυσμό και θλίψη"
+            },
+            {
+                question: "Ποιος είναι ο κύριος σκοπός των ικριωμάτων στις κατασκευές;",
+                options: ["Διακόσμηση", "Στήριξη υλικών", "Ασφαλής πρόσβαση εργατών", "Αποθήκευση εργαλείων"],
+                correct: "Ασφαλής πρόσβαση εργατών"
+            },
+            {
+                question: "Ποιο είναι το κύριο χαρακτηριστικό του τοιχοποιίας από τούβλα;",
+                options: ["Μεταλλική δομή", "Αντοχή στη φωτιά", "Υψηλό κόστος", "Μικρή διάρκεια ζωής"],
+                correct: "Αντοχή στη φωτιά"
             }
-            // Προσθέστε περισσότερες ερωτήσεις εδώ
         ];
 
         const quizContainer = document.getElementById('quiz');
         const submitButton = document.getElementById('submit');
+        const restartButton = document.getElementById('restart');
         const resultContainer = document.getElementById('result');
+        const chartContainer = document.getElementById('chart-container');
 
         function loadQuiz() {
             const output = [];
@@ -68,8 +91,36 @@
                     score++;
                 }
             });
+
             resultContainer.innerHTML = `Βαθμολογία: ${score} από ${quizData.length}`;
+            submitButton.style.display = "none";
+            restartButton.style.display = "block";
+            chartContainer.style.display = "block";
+
+            renderChart(score, quizData.length - score);
         }
+
+        function renderChart(correctAnswers, wrongAnswers) {
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Σωστές απαντήσεις', 'Λάθος απαντήσεις'],
+                    datasets: [{
+                        data: [correctAnswers, wrongAnswers],
+                        backgroundColor: ['#4CAF50', '#FF5733']
+                    }]
+                }
+            });
+        }
+
+        restartButton.addEventListener('click', () => {
+            loadQuiz();
+            resultContainer.innerHTML = "";
+            submitButton.style.display = "block";
+            restartButton.style.display = "none";
+            chartContainer.style.display = "none";
+        });
 
         loadQuiz();
         submitButton.addEventListener('click', showResults);
